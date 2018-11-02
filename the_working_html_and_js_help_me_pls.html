@@ -1,0 +1,434 @@
+
+<html>
+
+<img id="myImage">
+
+<body>
+
+
+ <img id="base" src="" alt="" >
+ <img id="markings1" class = "markings" src="" alt="">
+ <img id="markings2" class = "markings" src="" alt="">
+ <img id="markings3" class = "markings" src="" alt="">
+ <img id="markings4" class = "markings" src="" alt="">
+ <img id="markings5" class = "markings" src="" alt="">
+ <img id="markings6" class = "markings" src="" alt="">
+ <img id="markings7" class = "markings" src="" alt="">
+ <img id="B&T" class = "markings" src="" alt="">
+ <img id="red dilute" class = "markings" src="" alt="">
+ <img id="markings10"class = "markings" src="" alt="">
+ <img id="markings11"class = "markings" src="" alt="">
+ <img id="markings12"class = "markings" src="" alt="">
+ <img id="markings13"class = "markings" src="" alt="">
+ <img id="markings14"class = "markings" src="" alt="">
+ <img id="markings15"class = "markings" src="" alt=""> 
+ <img id="markings16"class = "markings" src="" alt="">
+ <img id="redRecessive"class = "markings" src="" alt="">
+ <img id = "markingAlbino"class= "markings" src="" alt="">
+ <img id = "outline"  src="" alt="">
+ 
+  
+
+
+<style>
+img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+}
+#base{
+position: relative;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+}
+.markings{
+position: absolute;
+    left: 10px;
+    top: 8px;
+    z-index: 10;
+}
+#outline{
+position: absolute;
+    left: 10px;
+    top: 8px;
+    z-index: 100;
+}
+</style>
+
+<script>
+////Ay Ay, points, Intensity loci, agauti, brindle + brindle markings, mask, [dilute B, dilute L], dilute G, black, spotting, red, albino + albino markings  
+
+var base = document.getElementById("base")
+var markings = document.getElementById("markings")
+var outline = document.getElementById("outline")
+var noseColor = document.getElementById("noseColor")
+var seal = false;
+function dog(id, coat, nrg, eye, K_, E_, D_, A_, C_, G_, B_, M_, SM_, V_, S_, T_, X_, H_, Z_){
+this.id = id;
+this.color = coat;
+this.nrg = nrg;
+this.eyeColor = eye;
+this.K = K_;
+this.E = E_;
+this.D = D_;
+this.A = A_;
+this.C = C_;
+this.G = G_;
+this.B = B_;
+this.M = M_;
+this.SM = SM_;
+this.V = V_;
+this.S = S_;
+this.T = T_;
+this.X = X_;
+this.H = H_;
+this.Z = Z_;
+}
+//----------------------
+var kenzie = new dog(1,"gold","energetic","brown", "kbr kbr", "E e", "d d", "Ay Ay", "chinchilla", "g g", "B B", "m m", "Ay Ay", "v v", "S S", "Td Td", "X X", "h h", "Z Z");
+var rainbow = new dog (2,"black","lazy","black", "kbr kbr", "E E", "d d", "Ay Ay", "chinchilla", "g g", "B B", "m m", "Ay Ay", "v v", "S S", "Td Td", "X X", "h h", "Z Z");
+var puppy = new dog(createpuppy);
+
+
+//next 2 things are me trying to figure out how to create a random number of puppy variables
+    function puppienum () {
+        Math.floor((Math.random() * 12) + 1);
+    }
+
+    var i;
+    for (i = 0; i < puppy.length; i++) { 
+        text += puppy[i] + "<br>";
+    }
+
+//the puppy create function. I need to figure out how to tie this thing into the amount of puppies created.
+    function createpuppy(){
+        puppy.K = myFunction(kenzie.K, rainbow.K)
+        puppy.E = myFunction(kenzie.E, rainbow.E)
+        puppy.D = myFunction(kenzie.D, rainbow.D)
+        puppy.A = myFunction(kenzie.A, rainbow.A)
+        puppy.C = myFunction(kenzie.C, rainbow.C)
+        puppy.G = myFunction(kenzie.G, rainbow.G)
+        puppy.B = myFunction(kenzie.B, rainbow.B)
+        puppy.M = myFunction(kenzie.M, rainbow.M)
+        puppy.SM = myFunction(kenzie.SM, rainbow.SM)
+        puppy.V = myFunction(kenzie.V, rainbow.V)
+        puppy.S = myFunction(kenzie.S, rainbow.S)
+        puppy.T = myFunction(kenzie.T, rainbow.T)
+        puppy.X = myFunction(kenzie.X, rainbow.X)
+        puppy.H = myFunction(kenzie.H, rainbow.H)
+        puppy.Z = myFunction(kenzie.Z, rainbow.Z)
+        //--------------------
+            function myFunction(a, b){
+            var parentAlleles = [a.split(" ") , b.split(" ")];
+            var allelesMom = parentAlleles[0];
+            var allelesDad = parentAlleles[1]; 
+            var alleleDad = allelesDad[Math.floor(Math.random()*allelesDad.length)];
+            var alleleMom = allelesMom[Math.floor(Math.random()*allelesMom.length)];
+            return alleleMom + " " + alleleDad;
+            }
+    }
+//-------------------outline-----------------------------
+outline.src ="doggo_outline_puppy.png";
+createpuppy();
+window.alert(puppy.E)
+
+
+
+//------------------Puppy K--------base------------------------
+
+if (puppy.E != "e e"){
+    if (puppy.K == "k k"){
+      document.write("visually red, check agauti ")
+      }
+    if (puppy.K == "K K" || puppy.K == "K k" || puppy.K == "k K" || puppy.K == "K kbr" || puppy.K == "kbr K") {
+     var d = Math.random();
+        if (d < 0.5){
+            document.write("BLACK, ");  
+          base.src ="https://image.ibb.co/bKNUbL/doggo-base-puppy-black.png";
+        }
+        else if (d < 0.6){
+            // 10% chance of being here
+          document.write("SEAL ");
+          seal = true;
+        }
+        else{
+            document.write("BLACK, ")
+            base.src ="https://image.ibb.co/bKNUbL/doggo-base-puppy-black.png";
+        }
+    }
+}
+
+//--------------------Puppy E--------marking1--------------------
+
+if (puppy.E == "Em E" || puppy.E == "E Em" || puppy.E == "Em Em" || puppy.E == "Em Eg" || puppy.E == "Eg Em" || puppy.E == "Em e" || puppy.E == "e Em"){
+    document.write("mask ");
+    markings1.src = "doggo_marking_puppy_mask.png";
+}
+
+if (puppy.E == "E E" || puppy.E == "E Eg" || puppy.E == "Eg E" || puppy.E == "E e" || puppy.E == "e E"){
+    //document.write("No effect ");
+    base.src ="https://image.ibb.co/bKNUbL/doggo-base-puppy-black.png";
+}
+if ((puppy.E == "Eg Eg" || puppy.E == "Eg e" || puppy.E == "e Eg") && (puppy.K != "kbr kbr" || puppy.K != "kbr K" || puppy.K != "K kbr" || puppy.K != "k kbr" || puppy.K != "kbr k") && (puppy.A == "at at")){
+    document.write("Grizzle w/ black base ");
+    base.src ="https://image.ibb.co/bKNUbL/doggo-base-puppy-black.png";
+}
+if (puppy.E == "e e"){
+    document.write("red / yellow based. No markings allowed to show. No black/blue/liver/isabella. Just red.");
+    recessiveRed.src = "doggo_base_puppy_recessiveRed.png";
+}
+
+//---------------------------BRINDLES----------------------------------
+
+if ((puppy.K == "kbr kbr" || puppy.K == "k kbr" || puppy.K == "kbr k") && (puppy.E != "e e") && (puppy.A == "Ay Aw" || puppy.A == "Ay As" || puppy.A == "Ay At" || puppy.A == "Ay Ay" ||puppy.A == "Aw Ay" || puppy.A == "As Ay"||puppy.A == "At Ay")){
+        document.write("Full body Brindle, ");
+    base.src = "doggo_marking_puppy_brindle.png";
+    } 
+
+if ((puppy.K == "kbr kbr" || puppy.K == "k kbr" || puppy.K == "kbr k") && (puppy.E != "e e") && (puppy.A == "At At" || puppy.A == "a At" || puppy.A == "At a")){
+    document.write("Base: Red. W brindle points")
+}
+if ((puppy.K == "kbr kbr" || puppy.K == "k kbr" || puppy.K == "kbr k") && (puppy.E != "e e") && (puppy.A == "Aw Aw" || puppy.A == "Aw As" || puppy.A == "As Aw" || puppy.A == "Aw At" || puppy.A == "At Aw" || puppy.A == "Aw a" || puppy.A == "a Aw")){
+    document.write("Either brindle points or no brindle. True effect is unknown.")
+}
+if ((puppy.K == "kbr kbr" || puppy.K == "k kbr" || puppy.K == "kbr k") && (puppy.E != "e e") && (puppy.A == "a a")){
+    document.write("Solid black, blue, liver, or isabella")
+}
+if ((puppy.K == "kbr kbr" || puppy.K == "k kbr" || puppy.K == "kbr k") && (puppy.E != "e e") && (puppy.A == "As At" || puppy.A == "At As" || puppy.A == "As a" || puppy.A == "a As" || puppy.A == "As As")){
+    document.write("Black saddle w/ brindle legs")
+}
+if ((puppy.K == "kbr kbr" || puppy.K == "k kbr" || puppy.K == "kbr k") && (puppy.E != "e e") && (puppy.E == "Eg Eg" || puppy.E == "Eg e" || puppy.E == "e Eg")){
+    document.write("Brindle on back, looks like saddle marking but brindle")
+}
+
+//----------------------Puppy A------marking3-------------------------------
+
+window.alert(puppy.K);
+
+if ((seal == true) && (puppy.A == "At At" || puppy.A == "a At" || puppy.A == "At a")){
+            document.write("GHOST TAN");
+        }
+
+if ((puppy.E != "e e") && (puppy.K == "k k")){
+    if (puppy.A == "As At" || puppy.A == "At As" || puppy.A == "As a" || puppy.A == "a As" || puppy.A == "As As"){
+    document.write("Saddle ");
+    base.src = "doggo_base_puppy_fawn.png";
+    markings3.src ="doggo_marking_puppy_saddleback.png";
+    }
+    if (puppy.A == "Ay Aw" || puppy.A == "Ay As" || puppy.A == "Ay At" || puppy.A == "Ay Ay" ||puppy.A == "Aw Ay" || puppy.A == "As Ay"||puppy.A == "At Ay"){
+    document.write("sable/fawn ");
+    base.src = "doggo_base_puppy_fawn.png";
+    }
+    if ((puppy.A == "Aw Aw" || puppy.A == "Aw As" || puppy.A == "As Aw" || puppy.A == "Aw At" || puppy.A == "At Aw" || puppy.A == "Aw a" || puppy.A == "a Aw") && (puppy.C != "Cch Cch")){
+    document.write("agauti ");
+    markings3.src ="https://image.ibb.co/jDydWV/doggo-marking-puppy-wolf-agauti.png";
+    }
+    if((puppy.C == "Cch Cch") && (puppy.A == "Aw Aw")){
+    document.write("Wild agauti ");
+    markings3.src ="https://image.ibb.co/jDydWV/doggo-marking-puppy-wolf-agauti.png";
+    }
+    if (puppy.A == "At At" || puppy.A == "a At" || puppy.A == "At a"){
+            document.write("rust markings ");
+        markings3.src ="doggo_marking_puppy_rustmarkings.png";
+    }
+    if (puppy.A == "a a"){
+    document.write("recessive black/liver/isabella");
+    base.src = "doggo_base_puppy_black.png";
+    }
+}
+
+//---------------------Puppy M------marking7--------------
+
+if (puppy.E != "e e"){
+    if (puppy.M == "M M"){
+        document.write("Double Merle, butterfly nose ")
+    }
+    if (puppy.M == "M m" || puppy.M == "m M"){
+        document.write("Merle, butterfly nose ")
+    }
+    if (puppy.M == "m m"){
+        //document.write("no merle")
+    }
+}
+
+//---------------------Puppy SM (Sable mod)----marking8-----------------
+if ((puppy.E != "e e") && (puppy.A == "Ay Aw" || puppy.A == "Ay As" || puppy.A == "Ay At" || puppy.A == "Ay Ay" ||puppy.A == "Aw Ay" || puppy.A == "As Ay"||puppy.A == "At Ay")){
+    if (puppy.SM == "Ac As" || puppy.SM == "As Ac" || puppy.SM == "Ac Ac" || puppy.SM == "Ac At" || puppy.SM == "At Ac"){
+        document.write("Clear Sable, ")
+    }
+    if ((puppy.SM == "At At" || puppy.SM == "At As" || puppy.SM == "As At") && (puppy.E == "Em E" || puppy.E == "E Em" || puppy.E == "Em Em" || puppy.E == "Em Eg" || puppy.E == "Eg Em" || puppy.E == "Em e" || puppy.E == "e Em")){
+        document.write("Tipped Sable, ")
+    }
+    if (puppy.SM == "As As"){
+        document.write("Shaded Sable, ")
+    }
+}
+
+
+//-------------------------Puppy V-----------marking9--------------------------
+if(puppy.E != "e e"){
+    if(puppy.V == "V V"){
+        document.write("Turning light silver, ")
+    }
+    if(puppy.V == "V v" || puppy.S == "v V"){
+        document.write("Turning silver, ")
+    }
+    if(puppy.V == "v v"){
+        //document.write("normal color")
+    }
+}
+
+//----------------------Puppy B-------marking6--------------
+
+if (puppy.E != "e e"){
+    if (puppy.B == "B B"){
+    //document.write("no liver")
+    }
+    if (puppy.B == "B b" || puppy.B == "b B"){
+        //document.write("Carries Liver")
+    }
+    if (puppy.B == "b b"){
+        document.write("Liver, liver nose and amber eyes ")
+    markings6.src = "doggo_overlay_puppy_liver.png";
+    }
+}
+if (puppy.B == "b b" && puppy.E == "e e"){
+    document.write("Pink nose and amber eyes")
+    markings6.src = "doggo_overlay_puppy_liver.png";
+
+}
+
+//-----------------------Puppy D------marking4--------------------------
+if ((puppy.D == "d d") && (puppy.B != "b b")){
+    document.write("Blue nose")
+}
+if (puppy.E != "e e"){
+    if (puppy.D == "D D"){
+        //document.write("no blue, ")
+    }
+    if (puppy.D == "D d" || puppy.D == "d D"){
+        //document.write("recessive blue, ")
+    }
+    if ((puppy.D == "d d") && (puppy.B != "b b")){
+        document.write("Shows blue, blue nose and amber eyes");
+    markings4.src = "doggo_overlay_puppy_blue.png"
+    }
+    if((puppy.D == "d d") && (puppy.B == "b b")){
+        document.write("Isabella w isabella nose and amber eyes ")
+    }
+}
+
+//----------------------Puppy G------marking5----------------
+if (puppy.E != "e e"){
+    if (puppy.G == "G G" || puppy.G == "G g" || puppy.G == "g G"){
+        document.write("Grey, ") //dog greys out as it ages
+    }
+    if(puppy.G == "g g"){
+        //document.write("No grey, ")
+    }
+}
+//----------------------Puppy S-----------marking10--------------------------
+if(puppy.S == "S S"){
+    //document.write("solid")
+}
+if(puppy.S == "S si" || puppy.S == "si S"){
+    document.write("White trim ")
+}
+if(puppy.S == "si si"){
+    document.write("Irish Spotting, ")
+}
+if (puppy.S == "S sp" || puppy.S == "sp S" || puppy.S == "sp si" || puppy.S == "si sp"){
+    document.write("Piebald, ")
+}
+if(puppy.S == "sp sp"){
+    document.write("Extreme piebald ");
+    markings10.src = "doggo_marking_puppy_extremePie1.png";
+    
+    
+}
+
+//----------------------Puppy T------------marking11-------------------------
+if(puppy.T == "T T"){
+    document.write("Heavy ticking, ")
+}
+if(puppy.T == "T t" || puppy.T == "t T" || puppy.T == "T Td" || puppy.T == "Td T"){
+    document.write("Light ticking, ")
+}
+if(puppy.T == "T Tr" || puppy.T == "Tr T"){
+    document.write("Ticking and roan, ")
+}
+if(puppy.T == "Tr Tr" || puppy.T == "Tr t" || puppy.T == "t Tr" || puppy.T == "Tr Td" || puppy.T == "Td Tr"){
+    document.write("Roan, ")
+}
+if(puppy.T == "Td Td" || puppy.T == "Td t" || puppy.T == "t Td"){
+    document.write("Dalmation Spots, ")
+}
+//----------------------Puppy X-------------marking12-------------------------
+if(puppy.X == "X X"){
+    //document.write("No Urajiro")
+}
+if(puppy.X == "x X" || puppy.X == "X x"){
+    //document.write("Carries Urahiro")
+}
+if(puppy.X == "x x"){
+    document.write("Urajiro, ")
+}
+//----------------------Puppy H---------marking13----------------------
+if((puppy.E != "e e") && (puppy.M == "M M" || puppy.M == "m M" || puppy.M == "M m")){
+    if(puppy.H == "H H"){
+        document.write("Lethal Harlequin")
+    }
+    if(puppy.H == "h H" || puppy.H == "H h"){
+        document.write("Harlequin")
+    }
+    if(puppy.H == "h h"){
+        //document.write("no harlequin")
+    }
+}
+
+//---------------------------------------------------------
+
+//------------------------Puppy C-------marking2-------------
+
+
+if (puppy.E == "e e" || puppy.A != "a a"){
+      if (puppy.C == "C C" || puppy.C == "C ca" || puppy.C == "ca C"){
+      document.write("Chinchilla: Red, ")
+      }
+      if(puppy.C == "C Cch" || puppy.C == "Cch C "){
+      document.write("Chinchilla: gold, ")
+      }
+      if((puppy.E == "e e") && (puppy.C == "C Ce" || puppy.C == "Ce C" || puppy.C == "Cch Cch" || puppy.C == "Cch ca" || puppy.C == "ca Cch")){
+      document.write("Chinchilla: Yellow, ")
+      }
+      if((puppy.E != "e e") && (puppy.C == "C Ce" || puppy.C == "Ce C" || puppy.C == "Cch Cch" || puppy.C == "Cch ca" || puppy.C == "ca Cch")){
+      document.write("Chinchilla: tan, ")
+      }
+      if(puppy.C == "Cch Ce" || puppy.C == "Ce Cch"){
+      document.write("Chinchilla: Cream, ")
+      }
+      if(puppy.C == "Ce Ce" || puppy.C == "Ce ca" || puppy.C == "ca Ce"){
+      document.write("Chinchilla: white, ")
+      }
+}
+
+//----------------------------Puppy Z-----albino---------------------
+
+if (puppy.Z == "z z"){
+    document.write("albino ");
+    markingAlbino.src = "doggo_base_puppy_albino.png";
+    if(puppy.A == "At At" || puppy.A == "a At" || puppy.A == "At a"){
+     document.write("white B&T markings")
+    }
+}
+
+
+
+</script>
+
+</body>
+</html>
+
+
